@@ -9,30 +9,21 @@ async function getMongoData() {
     const url = 'mongodb://localhost:27017';
     const client = new MongoClient(url);
     const dbName = 'assn6';
-    // Use connect method to connect to the server
     await client.connect();
     console.log('Connected successfully to server');
     const db = client.db(dbName);
     const collection = db.collection('race');
-    const findResult = await collection.find({}).toArray();
+    const findResult = await collection.find({});
     client.close()
-
-    // the following code examples can be pasted here...
-
     return findResult;
 }
 
 router.get('/barchart', function(req, res) {
-    console.log('got a barchart')
     res.sendFile(path.join(__dirname, '../frontend/html/bar.html'));
 })
 router.get('/barchart_data', async function(req, res) {
-
     const coll = await getMongoData();
-    // console.log('coll', coll)
     res.send(coll)
-
-
 })
 app.use('/public', express.static('../frontend'))
 
