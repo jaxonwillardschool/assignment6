@@ -1,3 +1,5 @@
+// https://www.tutorialsteacher.com/d3js/create-bar-chart-using-d3js
+
 async function drawBarChart() {
     const shooting_data = await axios.get('http://localhost:3000/barchart_data')
     var svg = d3.select(".graph").append("svg").attr("width", "600").attr("height", "500");
@@ -6,8 +8,8 @@ async function drawBarChart() {
     const height = svg.attr("height") - margin
     const xScale = d3.scaleBand().range([0, width]).padding(0.1)
     const yScale = d3.scaleLinear().range([height, 0])
-    const originalColor = "lightgreen"
-    const highlight = "green"
+    const originalColor = "#00759b"
+    const highlight = "blue"
 
 
 
