@@ -13,8 +13,9 @@ async function getMongoData() {
     console.log('Connected successfully to server');
     const db = client.db(dbName);
     const collection = db.collection('race');
-    const findResult = await collection.find({});
+    const findResult = await collection.find({}).toArray();
     client.close()
+    console.log(findResult)
     return findResult;
 }
 
