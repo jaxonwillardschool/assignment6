@@ -85,7 +85,23 @@ async function drawLineChart() {
     g.append("g")
         .attr("class", "axis")
         .call(yaxis);
+    g.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("y", -60)
+        .attr("dy", ".75em")
+        .attr("transform", "rotate(-90)")
+        .style("font-family", "calibri")
+        .text("Tweets");
 
+    
+    svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", width + 100)
+        .attr("y", 440) 
+        +        .style("font-family", "calibri")
+        .text("Year");
 
 
 
