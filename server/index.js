@@ -32,7 +32,16 @@ router.get('/linechart', function(req, res) {
 
 router.get('/linechart_data', async function(req, res) {
     const coll = await getMongoData('tweets-donald-trump');
-    res.send(coll)
+    res.send(coll);
+})
+
+router.get('/areachart_data', async function(req, res) {
+    const coll = await getMongoData('utah-covid');
+    res.send(coll);
+})
+
+router.get('/areachart', function(req, res) {
+    res.sendFile(path.join(__dirname, '../frontend/html/area.html'));
 })
 
 app.use('/public', express.static('../frontend'))

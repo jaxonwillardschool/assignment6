@@ -3,21 +3,6 @@
 
 async function drawLineChart() {
     const tweet_data = await axios.get('http://localhost:3000/linechart_data')
-    // const width = 1000;
-    // const height = 500;
-    // const margin = 200;
-    // const padding = 5;
-    // const adj = 30;
-    // const svg = d3.select(".graph").append("svg")
-    //     .attr("preserveAspectRatio", "xMinYMin meet")
-    //     .attr("viewBox", "-"
-    //         + adj + " -"
-    //         + adj + " "
-    //         + (width + adj *3) + " "
-    //         + (height + adj*3))
-    //     .style("padding", padding)
-    //     .style("margin", margin)
-    //     .classed("svg-content", true);
     var svg = d3.select(".graph").append("svg").attr("width", "600").attr("height", "500");
     var g = svg.append("g") .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
@@ -43,36 +28,6 @@ async function drawLineChart() {
         .attr('stroke', 'blue')
         .attr('stroke-width', 2)
         .attr('fill', 'none');
-        
-
-    
-
-    // const line = d3.line()
-    //     .x(d => {
-    //         console.log(d)
-    //         return xScale(d) 
-    //     })
-    //     .y(d => {
-    //         return yScale(d)
-    //     })
-
-    // const lines = svg.selectAll("lines")
-    //     .data(groupByYear)
-    //     .enter()
-    //     .append("g")
-
-    // lines.append("path")
-    //     .attr("d" , (d) => { 
-    //         return line(d)})
-    //     .attr("stroke", "black")
-    //     .attr("fill", "black")
-
-
-
-
-
-
-
 
     const yaxis = d3.axisLeft().scale(yScale); 
     const xaxis = d3.axisBottom().scale(xScale);
@@ -100,7 +55,7 @@ async function drawLineChart() {
         .attr("text-anchor", "end")
         .attr("x", width + 100)
         .attr("y", 440) 
-        +        .style("font-family", "calibri")
+        .style("font-family", "calibri")
         .text("Year");
 
 
